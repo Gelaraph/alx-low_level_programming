@@ -11,6 +11,8 @@ An introductory project on:
 - How to affect values to variables
 - How to use the if, if ... else statements
 - How to print the values of variables with printf
+- How to declare variables of types char, int, unsigned int
+- How to print the values of variables of type char, int, unsigned int with printf
 - How to use the while loop
 - What is the ASCII character set
 - The purpose of the gcc flags -m32 and -m64
@@ -24,24 +26,24 @@ An introductory project on:
 ### Mandatory Tasks:
 
 - 0-positive_or_negative.c:  Assign a random number to the variable n each time it is executed. 
-      - Print whether the number stored in the variable n is positive or negative.
-      - The output of the program should be:
-             - The number, followed by
-             - if the number is greater than 0: is positive
-             - if the number is 0: is zero
-             - if the number is less than 0: is negative
-             - followed by a new line
+             - Print whether the number stored in the variable n is positive or negative.
+             - The output of the program should be:
+                        - The number, followed by
+                        - if the number is greater than 0: is positive
+                        - if the number is 0: is zero
+                        - if the number is less than 0: is negative
+                        - followed by a new line
 
 - 1-last_digit.c:  Assign a random number to the variable n each time it is executed. 
-      - Print whether the last digit of the number stored in the variable n is greater than 5, 0, or less than 6 and not 0.
-      - The output of the program should be:
-             - The string Last digit of, followed by
-             - n, followed by
-             - the string 'is', followed by
-             - if the last digit of n is greater than 5: the string and is greater than 5
-             - if the last digit of n is 0: the string and is 0
-             - if the last digit of n is less than 6 and not 0: the string and is less than 6 and not 0
-             - followed by a new line
+                   - Print whether the last digit of the number stored in the variable n is greater than 5, 0, or less than 6 and not 0.
+                   - The output of the program should be:
+                               - The string Last digit of, followed by
+                               - n, followed by
+                               - the string 'is', followed by
+                               - if the last digit of n is greater than 5: the string and is greater than 5
+                               - if the last digit of n is 0: the string and is 0
+                               - if the last digit of n is less than 6 and not 0: the string and is less than 6 and not 0
+                               - followed by a new line
              
 - 2-print_alphabet.c:  Print the alphabet in lowercase, followed by a new line, using putchar.
 
