@@ -1,4 +1,8 @@
 # C Low level programming & algorithms
+
+
+![C pro](https://user-images.githubusercontent.com/91147803/162432166-0f08df51-fadc-4d37-99f8-bc92b797589b.png)
+
 ## Welcome 
 Thank you for visiting my C programming projects learnt during my software engineering program with ALX. 
 
