@@ -11,33 +11,33 @@
  */
 int main(void)
 {
-	int digit1;
-	int digit2;
+	int i;
+	int j;
 
-	digit1 = 48;
-	digit2 = 48;
-	while  ((digit1 < 58) && (digit2 < 58))
+	i = 48;
+	j = 49;
+	while  ((i < 57) && (j < 58))
 	{
-		putchar(digit1);
-		putchar(digit2);
-		if ((digit1 == 57) && (digit2 == 57))
+		putchar(i);
+		putchar(j);
+		if ((i == 56) && (j == 57))
 		{
 			putchar('\n');
-			digit1++;
-			digit2++;
+			i++;
+			j++;
 		}
 		else
 		{
 			putchar(44);
 			putchar(32);
-			if (digit2 < 57)
+			if (j < 57)
 			{
-				digit2++;
+				j++;
 			}
 			else
 			{
-				digit2 = 48;
-				digit1++;
+				i++;
+				j = 1 + i;
 			}
 		}
 
