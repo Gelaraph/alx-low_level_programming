@@ -1,9 +1,10 @@
 # 0x06-pointers_arrays_strings
 
-Technologies
-C files are compiled using gcc 4.8.4
-C files are written according to the C90 standard
-Tested on Ubuntu 14.04 LTS
+## Technologies:
+
+- C files are compiled using gcc 4.8.4
+- C files are written according to the C90 standard
+- Tested on Ubuntu 14.04 LTS
 
 ## Tasks:
 
