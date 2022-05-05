@@ -1,14 +1,15 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
-/**
- * argstostr - Write a function that concatenates all the 
- * arguments of your program.
- * @ac: int input
- * @av: double pointer array
- * Return: A pointer to a new string, or NULL if it fails
- */
 
+/**
+ * argstostr - function that concatenates all the arguments of your program
+ *
+ * @ac: argument count
+ * @av: pointer to a string of pointers to strings
+ *
+ * Return: address of the newly allocated memory
+ */
 
 char *argstostr(int ac, char **av)
 {
