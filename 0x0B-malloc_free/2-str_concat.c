@@ -1,49 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
-/**
- * str_concat: A function that concatenates two strings.
- * @s1: input one to concat
- * @s2: input two to concat
- * Return: The returned pointer should point to a newly allocated space in memory which contains the contents of s1, followed by the contents of s2, 
- * and null terminated if NULL is passed, treat it as an empty string.
- * The function should return NULL on failure
- */
 
+/**
+ * str_concat - function that concatenates two strings
+ *
+ * @s1: string of chars
+ * @s2: string of chars
+ *
+ * Return: address of the newly allocated memory
+ */
 
 char *str_concat(char *s1, char *s2)
 {
-	int end1, end2, i = 0;
-	char *array;
+	unsigned int len1, len2;
+	unsigned int i, j;
+	char *str_copy;
+	char *tmp1 = s1;
+	char *tmp2 = s2;
 
-	if (s1 == NULL || s2 == NULL)
-		s1 = s2 = "";
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
-	for (end1 = 0; end1 <= *s1; end1++)
-	{
-	}
+	i = 0;
+	while (*s1++)
+		i++;
+	len1 = i;
+	s1 = tmp1;
 
-	for (end2 = 0; end2 <= *s2; end2++)
-	{
-	}
+	i = 0;
+	while (*s2++)
+		i++;
+	len2 = i;
+	s2 = tmp2;
 
-	array = malloc(sizeof(char) * (end1 + end2 + 1));
-
-	if (array == NULL)
+	str_copy = malloc((len1 + len2) * sizeof(char) + 1);
+	if (str_copy == NULL)
 		return (NULL);
 
-	while (*s1)
+	j = 0;
+	while (j < len1)
 	{
-		array[i] = *s1;
-		i++;
-		s1++;
+		str_copy[j] = s1[j];
+		j++;
 	}
-
-	while (*s2)
+	while (j < len1 + len2)
 	{
-		array[i] = *s2;
-		i++;
-		s2++;
+		str_copy[j] = s2[j - len1];
+		j++;
 	}
-	return (array);
+	str_copy[j] = '\0';
+	return (str_copy);
 }

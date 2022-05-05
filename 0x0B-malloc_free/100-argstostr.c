@@ -8,36 +8,41 @@
  * @av: double pointer array
  * Return: A pointer to a new string, or NULL if it fails
  */
+
+
 char *argstostr(int ac, char **av)
 {
-	int i, n, k = 0, len = 0;
-	char *str;
+	int i, j, k;
+	int sumlen = 0;
+	char *arg_concat;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	for (i = 0; i < ac; i++)
 	{
-		for (n = 0; av[i][n]; n++)
-			len++;
+		for (j = 0; av[i][j] != '\0'; j++)
+			sumlen++;
+		sumlen++;
 	}
-	len += ac;
+	sumlen++;
 
-	str = malloc(sizeof(char) * len + 1);
-	if (str == NULL)
+	arg_concat = malloc(sumlen * sizeof(char));
+	if (arg_concat == NULL)
+	{
+		free(arg_concat);
 		return (NULL);
+	}
 
+	k = 0;
 	for (i = 0; i < ac; i++)
 	{
-		for (n = 0; av[i][n]; n++)
+		for (j = 0; av[i][j] != '\0'; j++, k++)
 		{
-			str[k] = av[i][n];
-			k++;
+			arg_concat[k] = av[i][j];
 		}
-		if (str[k] == '\0')
-		{
-			str[k++] = '\n';
-		}
+		arg_concat[k] = '\n';
+		k++;
 	}
-	return (str);
+	return (arg_concat);
 }

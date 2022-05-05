@@ -9,6 +9,7 @@
  * address of the newly allocated memory
  */
 
+
 char **strtow(char *str)
 {
 	int i, j, k = 0, l, m, count = 0, len;
