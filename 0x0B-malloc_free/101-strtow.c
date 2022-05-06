@@ -1,52 +1,104 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * strtow - function that splits a string into words
- * @str: pointer to the string for processing
- * Return: pointer to an array of strings
- * address of the newly allocated memory
+ * strtow - splits a string into words
+ * @str: string of words to be split
+ * Return: double pointer to strings
  */
-
- char **strtow(char *str)
+char **strtow(char *str)
 {
-	char **matrix, *tmp;
-	int i, k = 0, len = 0, words, c = 0, start, end;
+	char **ptr;
+	int i, k, len, start, end, j = 0;
+	int words =  countWords(str);
 
-	while (*(str + len))
-		len++;
-	words = count_word(str);
-	if (words == 0)
+	if (!str || !countWords(str))
 		return (NULL);
-
-	matrix = (char **) malloc(sizeof(char *) * (words + 1));
-	if (matrix == NULL)
+	ptr = malloc(sizeof(char *) * (words + 1));
+	if (!ptr)
 		return (NULL);
-
-	for (i = 0; i <= len; i++)
+	for (i = 0; i < words; i++)
 	{
-		if (str[i] == ' ' || str[i] == '\0')
+		start = startIndex(str, j);
+		end = endIndex(str, start);
+		len = end - start;
+		ptr[i] = malloc(sizeof(char) * (len + 1));
+		if (!ptr[i])
 		{
-			if (c)
+			i -= 1;
+			while (i >= 0)
 			{
-				end = i;
-				tmp = (char *) malloc(sizeof(char) * (c + 1));
-				if (tmp == NULL)
-					return (NULL);
-				while (start < end)
-					*tmp++ = str[start++];
-				*tmp = '\0';
-				matrix[k] = tmp - c;
-				k++;
-				c = 0;
+				free(ptr[i]);
+					i--;
 			}
+			free(ptr);
+			return (NULL);
 		}
-		else if (c++ == 0)
-			start = i;
+		for (k = 0; k < len; k++)
+			ptr[i][k] = str[start++];
+		ptr[i][k++] = '\0';
+		j = end + 1;
 	}
+	ptr[i] = NULL;
+	return (ptr);
+}
 
-	matrix[k] = NULL;
+/**
+ * isSpace - determines if character is a space or not
+ * @c: input char
+ * Return: 1 if true or 0 or not
+ */
+int isSpace(char c)
+{
+	return (c == ' ');
+}
 
-	return (matrix);
- }
+/**
+ * startIndex - returns first index of non-space char
+ * @s: input string
+ * @index: starting index
+ * Return: index of first non-space char
+ */
+int startIndex(char *s, int index)
+{
+
+	while (isSpace(*(s + index)))
+		index++;
+	return (index);
+}
+
+/**
+ * endIndex - returns last index of non-space char
+ * @s: input string
+ * @index: starting index
+ * Return: index of last index of non-space char
+ */
+int endIndex(char *s, int index)
+{
+	while (!isSpace(*(s + index)))
+		index++;
+	return (index);
+}
+
+/**
+ * countWords - counts numbers of words in string
+ * @s: input string
+ * Return: number of words
+ */
+int countWords(char *s)
+{
+	int wordOn = 0;
+	int words = 0;
+
+	while (*s)
+	{
+		if (isSpace(*s) && wordOn)
+			wordOn = 0;
+		else if (!isSpace(*s) && !wordOn)
+		{
+			wordOn = 1;
+			words++;
+		}
+		s++;
+	}
+	return (words);
+}
