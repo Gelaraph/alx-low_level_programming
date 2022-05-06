@@ -9,45 +9,44 @@
  * address of the newly allocated memory
  */
 
-char **strtow(char *str)
+ char **strtow(char *str)
 {
-	int i, j, k = 0, l, m, count = 0, len;
-	char **words;
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
 
-	if (str == NULL || str == '\0')
+	while (*(str + len))
+		len++;
+	words = count_word(str);
+	if (words == 0)
 		return (NULL);
 
-	for (i = 0; str[i] != '\0'; i++)
-		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
-			count++;
-	if (count == 0)
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
 		return (NULL);
-	words = malloc((count + 1) * sizeof(char *));
-	if (words == NULL)
+
+	for (i = 0; i <= len; i++)
 	{
-		free(words);
-		return (NULL);
-	}
-	for (i = 0; str[i] != '\0' &&  k < count; i++)
-	{
-		if (str[i] != ' ')
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			len = 0;
-			for (j = i; str[j] != ' ' && str[j] != '\0'; j++)
-				len++;
-			words[k] = malloc((len + 1) * sizeof(char));
-			if (words[k] == NULL)
+			if (c)
 			{
-				for (m = 0; m < k; m++)
-					free(words[k]);
-				free(words);
-				return (NULL);
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
+					return (NULL);
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				matrix[k] = tmp - c;
+				k++;
+				c = 0;
 			}
-			for (l = 0; l < len; l++, i++)
-				words[k][l] = str[i];
-			words[k][l] = '\0', k++;
 		}
+		else if (c++ == 0)
+			start = i;
 	}
-	words[k] = NULL;
-	return (words);
-}
+
+	matrix[k] = NULL;
+
+	return (matrix);
+ }
