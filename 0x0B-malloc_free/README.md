@@ -28,7 +28,7 @@ julien@ubuntu:~/0x0a. malloc, free$ cat 0-main.c
 ```
 
 ```c
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -111,7 +111,7 @@ julien@ubuntu:~/0x0a. malloc, free$ cat 1-main.c
 ```
 
 ```c
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -157,7 +157,7 @@ julien@ubuntu:~/0x0a. malloc, free$ cat 2-main.c
 ```
 
 ```c
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -203,7 +203,7 @@ julien@ubuntu:~/0x0a. malloc, free$ cat 3-main.c
 ```
 
 ```c
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -284,7 +284,7 @@ julien@ubuntu:~/0x0a. malloc, free$ cat 4-main.c
 ```
 
 ```c
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -382,7 +382,7 @@ julien@ubuntu:~/0x0a. malloc, free$ cat 5-main.c
 ```
 
 ```c
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -437,7 +437,7 @@ julien@ubuntu:~/0x0a. malloc, free$ cat 100-main.c
 ```
 
 ```c
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
