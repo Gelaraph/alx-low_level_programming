@@ -72,8 +72,8 @@ void print_name_uppercase(char *name)
  */
 int main(void)
 {
-    print_name("Danton", print_name_as_is);
-    print_name("Rick Harris", print_name_uppercase);
+    print_name("Bob", print_name_as_is);
+    print_name("Bob Dylan", print_name_uppercase);
     printf("\n");
     return (0);
 }
@@ -82,8 +82,10 @@ int main(void)
 ```
 julien@ubuntu:~/0x0e. Function pointers$ gcc -Wall -pedantic -Werror -Wextra 0-main.c 0-print_name.c -o a
 julien@ubuntu:~/0x0e. Function pointers$ ./a
-Hello, my name is Danton
-Hello, my uppercase name is RICK HARRIS
+Hello, my name is Bob
+Hello, my uppercase name is BOB DYLAN
+
+julien@ubuntu:~/0x0e. Function pointers$
 ```
 
 ---
@@ -153,6 +155,8 @@ julien@ubuntu:~/0x0e. Function pointers$ ./b
 0x192
 0x400
 0x1000
+
+julien@ubuntu:~/0x0e. Function pointers$
 ```
 
 ---
@@ -331,6 +335,8 @@ julien@ubuntu:~/0x0e. Function pointers$ ./calc 1024 - 98
 926
 julien@ubuntu:~/0x0e. Function pointers$ ./calc 1024 '%' 98
 44
+
+julien@ubuntu:~/0x0e. Function pointers$
 ```
 
 ---
@@ -373,6 +379,8 @@ julien@ubuntu:~/0x0e. Function pointers$ ./main 21 | udcli -64 -x -o 4005f6
 0000000000400601 488975d0         mov [rbp-0x30], rsi
 0000000000400605 837ddc02         cmp dword [rbp-0x24], 0x2
 0000000000400609 7414             jz 0x40061f
+
+julien@ubuntu:~/0x0e. Function pointers$
 ```
 
 ---
