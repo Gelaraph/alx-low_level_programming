@@ -5,13 +5,13 @@
  * of a list_t list.
  * @head: head of the linked list.
  * @str: string to store in the list.
- * Return: address of the head.
+ * Return: address of the new element, or NULL if it failed
  */
 
 list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new, *temp;
-	size_t nchar;
+	size_t n;
 
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
@@ -19,10 +19,10 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	new->str = strdup(str);
 
-	for (nchar = 0; str[nchar]; nchar++)
+	for (n = 0; str[n]; n++)
 		;
 
-	new->len = nchar;
+	new->len = n;
 	new->next = NULL;
 	temp = *head;
 
